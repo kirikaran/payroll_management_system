@@ -5,8 +5,8 @@
 		@$id 			= $_POST['ot_id'];
 		@$overtime		= $_POST['rate'];
 
-
-		$sql = mysql_query("UPDATE overtime SET rate='$overtime' WHERE ot_id='1'");
+$connection = mysqli_connect('localhost', 'root', '','payroll');
+		$sql = mysqli_query($connection,"UPDATE overtime SET rate='$overtime' WHERE ot_id='1'");
 
 		if($sql)
 		{

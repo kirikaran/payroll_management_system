@@ -9,8 +9,8 @@
   $gender     = $_POST['gender'];
   $division   = $_POST['division'];
   $emp_type   = $_POST['emp_type'];
-
-  $sql = mysql_query("UPDATE employee SET emp_type='$emp_type', lname='$lname', fname='$fname', gender='$gender', division='$division' WHERE emp_id='$id'");
+$connection = mysqli_connect('localhost', 'root', '','payroll');
+  $sql = mysqli_query($connection,"UPDATE employee SET emp_type='$emp_type', lname='$lname', fname='$fname', gender='$gender', division='$division' WHERE emp_id='$id'");
 
   if ($sql)
   {

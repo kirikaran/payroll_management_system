@@ -2,13 +2,13 @@
 
   include("db.php");
   include("auth.php");
-
+$connection = mysqli_connect('localhost', 'root', '','payroll');
   $id           = $_POST['id'];
   $deduction    = $_POST['deduction'];
   $overtime     = $_POST['overtime'];
   $bonus        = $_POST['bonus'];
 
-  $sql = mysql_query("UPDATE employee SET deduction='$deduction', overtime='$overtime', bonus='$bonus' WHERE emp_id='$id'");
+  $sql = mysqli_query($connection,"UPDATE employee SET deduction='$deduction', overtime='$overtime', bonus='$bonus' WHERE emp_id='$id'");
 
   if ($sql)
   {

@@ -5,8 +5,8 @@
 		@$id 			= $_POST['salary_id'];
 		@$salary		= $_POST['salary_rate'];
 
-
-		$sql = mysql_query("UPDATE salary SET salary_rate='$salary' WHERE salary_id='1'");
+$connection = mysqli_connect('localhost', 'root', '','payroll');
+		$sql = mysqli_query($connection,"UPDATE salary SET salary_rate='$salary' WHERE salary_id='1'");
 
 		if($sql)
 		{

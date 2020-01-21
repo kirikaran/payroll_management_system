@@ -83,31 +83,17 @@
       <div class="jumbotron">
         <h1>PAYROLL MANAGEMENT</h1>
         <p class="lead">This payroll management system has improvised all the basic exercise to manage the salary of the employees.</p>
-        <p><a data-toggle="modal" class="btn btn-lg btn-success" href="#instructor" role="button">Brought To You By: Code-Projects</a></p>
+        <link href="assets/pngkit_stryper-logo-png_6404575.png" rel="shortcut icon">
       </div>
 
       <!-- Site footer -->
-      <footer class="footer">
-        <p align="center">&copy; 2018 PAYROLL MANAGEMENT SYSTEM</p>
-        <p align="center">Brought To You By<a target="_blank" href="http://code-projects.org/">code-projects.org</a></p>
-      </footer>
+     
 
       <!-- this modal is for my INSTRUCTOR -->
       <div class="modal fade" id="instructor" role="dialog">
         <div class="modal-dialog modal-sm">
               
-          <!-- Modal content-->
-          <div class="modal-content">
-            <div class="modal-header" style="padding:20px 50px;">
-              <button type="button" class="close" data-dismiss="modal" title="Close">&times;</button>
-              <h3 align="center"><b>Brought To You By</b></h3>
-            </div>
-            <div class="modal-body" style="padding:40px 50px;">
-              <div align="center">
-                <a href="https://code-projects.org/" target="_blank" title="code-projects"><big><b>code-projects.org</b></big></a>
-              </div>
-            </div>
-          </div>
+          
         </div>
       </div>
 
