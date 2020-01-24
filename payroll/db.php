@@ -1,5 +1,5 @@
 <?php
-	$connection = mysqli_connect('localhost', 'root', '','payroll');
+	$connection = mysqli_connect('localhost', 'root', '','paysheet');
 
 	if (!$connection)
 	{

@@ -2,7 +2,7 @@
   include("auth.php"); //include auth.php file on all secure pages
   include("add_employee.php");
 
-  $sql = mysqli_query($conn,"SELECT * from deductions WHERE deduction_id='1'");
+  $sql = mysqli_query($conn,"SELECT * from salary WHERE sal_id='1'");
   while($row = mysqli_fetch_array($sql))
   {
     $phil = $row['philhealth'];
@@ -64,13 +64,13 @@
         <nav>
           <ul class="nav nav-justified">
             <li class="active">
-              <a href="">Employee</a>
+              <a href="">Member</a>
             </li>
             <li>
-              <a href="home_deductions.php">Deduction/s</a>
+              <a href="home_deductions.php">Attendance</a>
             </li>
             <li>
-              <a href="home_salary.php">Income</a>
+              <a href="home_salary.php">Salary</a>
             </li>
           </ul>
         </nav>
@@ -89,51 +89,45 @@
                       <thead>
                         <tr class="info">
                           <th><p align="center">Name</p></th>
-                          <th><p align="center">Gender</p></th>
-                          <th><p align="center">Employee Type</p></th>
-                          <th><p align="center">Department</p></th>
-                          <th><p align="center">Action</p></th>
+                          <th><p align="center">Address</p></th>
+                          <th><p align="center">Age</p></th>
+                          <th><p align="center">Join Date</p></th>
+						  <th><p align="center">Action</p></th>
                         </tr>
                       </thead>
                       <tbody>
                         <?php
 
-                         $conn = mysqli_connect('localhost', 'root', '','payroll');
+                         $conn = mysqli_connect('localhost', 'root', '','paysheet');
                         
                           
-                          $query=mysqli_query( $conn,"select * from employee ORDER BY emp_id asc")or die(mysql_error());
+                          $query=mysqli_query( $conn,"select * from member ORDER BY mem_id asc")or die(mysql_error());
                           while($row=mysqli_fetch_array($query))
                           {
-                            $id     =$row['emp_id'];
-                            $lname  =$row['lname'];
-                            $fname  =$row['fname'];
-                            $type   =$row['emp_type'];
-                            $deduction   =$row['deduction'];
+                            $id     =$row['mem_id'];
+                            $name  =$row['name'];
+                            $address  =$row['address'];
+                            $age   =$row['age'];
+                            $join_date   =$row['join_date'];
                             $overtime   =$row['overtime'];
                             $bonus   =$row['bonus'];
                         ?>
 
                         <tr>
-                          <td align="center"><a href="view_employee.php?emp_id=<?php echo $row["emp_id"]; ?>" title="Update"><?php echo $row['lname'] ?>,  <?php echo $row['fname'] ?></a></td>
-                          <td align="center"><a href="view_employee.php?emp_id=<?php echo $row["emp_id"]; ?>" title="Update"><?php echo $row['gender'] ?></a></td>
-                          <td align="center"><a href="view_employee.php?emp_id=<?php echo $row["emp_id"]; ?>" title="Update"><?php echo $row['emp_type'] ?></a></td>
-                          <td align="center"><a href="view_employee.php?emp_id=<?php echo $row["emp_id"]; ?>" title="Update"><?php echo $row['division'] ?></a></td>
+                          <td align="center"><a href="view_employee.php?mem_id=<?php echo $row["mem_id"]; ?>" title="Update"><?php echo $row['name'] ?>
+                          <td align="center"><a href="view_employee.php?mem_id=<?php echo $row["mem_id"]; ?>" title="Update"><?php echo $row['address'] ?></a></td>
+                          <td align="center"><a href="view_employee.php?mem_id=<?php echo $row["mem_id"]; ?>" title="Update"><?php echo $row['age'] ?></a></td>
+                          <td align="center"><a href="view_employee.php?mem_id=<?php echo $row["mem_id"]; ?>" title="Update"><?php echo $row['join_date'] ?></a></td>
                           <td align="center">
-                            <a class="btn btn-primary" href="view_account.php?emp_id=<?php echo $row["emp_id"]; ?>">Account</a>
-                            <a class="btn btn-danger" href="delete.php?emp_id=<?php echo $row["emp_id"]; ?>">Delete</a>
+                            <a class="btn btn-primary" href="view_account.php?mem_id_id=<?php echo $row["mem_id"]; ?>">Account</a>
+                            <a class="btn btn-danger" href="delete.php?mem_id=<?php echo $row["mem_id"]; ?>">Delete</a>
                           </td>
                         </tr>
 
                         <?php } ?>
                       </tbody>
                       
-                        <tr class="info">
-                          <th><p align="center">Name</p></th>
-                          <th><p align="center">Gender</p></th>
-                          <th><p align="center">Employee Type</p></th>
-                          <th><p align="center">Department</p></th>
-                          <th><p align="center">Action</p></th>
-                        </tr>
+                        
                     </table>
                   </form>
                 </div>
@@ -155,54 +149,30 @@
 
               <form class="form-horizontal" action="#" name="form" method="post">
                 <div class="form-group">
-                  <label class="col-sm-4 control-label">Lastname</label>
+                  <label class="col-sm-4 control-label">Name</label>
                   <div class="col-sm-8">
-                    <input type="text" name="lname" class="form-control" placeholder="Lastname" required="required">
+                    <input type="text" name="name" class="form-control" placeholder="Name" required="required">
                   </div>
                 </div>
                 <div class="form-group">
-                  <label class="col-sm-4 control-label">Firstname</label>
+                  <label class="col-sm-4 control-label">Address</label>
                   <div class="col-sm-8">
-                    <input type="text" name="fname" class="form-control" placeholder="Firstname" required="required">
+                    <input type="text" name="address" class="form-control" placeholder="Address" required="required">
                   </div>
                 </div>
-                <div class="form-group">
-                  <label class="col-sm-4 control-label">Gender</label>
+               <div class="form-group">
+                  <label class="col-sm-4 control-label">Age</label>
                   <div class="col-sm-8">
-                    <select name="gender" class="form-control" placeholder="Gender" required>
-                      <option value="">Gender</option>
-                      <option value="Male">Male</option>
-                      <option value="Female">Female</option>
-                    </select>
+                    <input type="number" name="age" class="form-control" placeholder="Age" required="required">
                   </div>
                 </div>
-                <div class="form-group">
-                  <label class="col-sm-4 control-label">Employee Type</label>
+                 <div class="form-group">
+                  <label class="col-sm-4 control-label">Join Date</label>
                   <div class="col-sm-8">
-                    <select name="emp_type" class="form-control" placeholder="Employee Type" required>
-                      <option value="">Employee Type</option>
-                      <option value="Job Order">Job Order</option>
-                      <option value="Regular">Regular</option>
-                      <option value="Casual">Casual</option>
-                    </select>
+                    <input type="date" name="join_date" class="form-control" placeholder="Join Date" required="required">
                   </div>
                 </div>
-                <div class="form-group">
-                  <label class="col-sm-4 control-label">Division</label>
-                  <div class="col-sm-8">
-                    <select name="division" class="form-control" placeholder="Division" required>
-                      <option value="">Division</option>
-                      <option value="Admin">Admin</option>
-                      <option value="Human Resource">Human Resource</option>
-                      <option value="Accounting">Accounting</option>
-                      <option value="Engineering">Engineering</option>
-                      <option value="MIS">MIS</option>
-                      <option value="Supply">Supply</option>
-                      <option value="Maintenance">Maintenance</option>
-                      <option value="Control">Control</option>
-                    </select>
-                  </div>
-                </div>
+               
 
                 <div class="form-group">
                   <label class="col-sm-4 control-label"></label>

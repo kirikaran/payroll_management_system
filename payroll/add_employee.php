@@ -1,22 +1,21 @@
 <?php
-  $conn = mysqli_connect('localhost', 'root', '','payroll');
+  $conn = mysqli_connect('localhost', 'root', '','paysheet');
  
 
   if(isset($_POST['submit'])!="")
   {
-    $lname      = $_POST['lname'];
-    $fname      = $_POST['fname'];
-    $gender     = $_POST['gender'];
-    $type       = $_POST['emp_type'];
-    $division   = $_POST['division'];
+    $name      = $_POST['name'];
+    $address      = $_POST['address'];
+    $age     = $_POST['age'];
+    $join_date= $_POST['join_date'];
 
-    $sql = mysqli_query($conn,"INSERT into employee(lname, fname, gender, emp_type, division)VALUES('$lname','$fname','$gender', '$type', '$division')");
+    $sql = mysqli_query($conn,"INSERT into member(name, address, age, join_date)VALUES('$name','$address','$age', '$join_date')");
 
     if($sql)
     {
       ?>
         <script>
-            alert('Employee had been successfully added.');
+            alert('member had been successfully added.');
             window.location.href='home_employee.php?page=emp_list';
         </script>
       <?php 

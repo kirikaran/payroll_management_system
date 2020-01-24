@@ -3,24 +3,6 @@
   include("add_employee.php");
 ?>
 
-<?php
-
-  $conn = mysqli_connect('localhost', 'root', '','payroll');
-  
-
-  $query  = mysqli_query($conn,"SELECT * from deductions");
-  while($row=mysqli_fetch_array($query))
-  {
-    $id           = $row['deduction_id'];
-    $philhealth   = $row['philhealth'];
-    $bir          = $row['bir'];
-    $gsis         = $row['gsis'];
-    $love         = $row['pag_ibig'];
-    $loans        = $row['loans'];
-
-    $total        = $philhealth + $bir + $gsis + $love + $loans;
-  }
-?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -67,22 +49,22 @@
     <div class="container">
       <div class="masthead">
         <h3>
-          <b>Payroll Management System</b>
+          <b>Paysheet Management System</b>
             <a data-toggle="modal" href="#colins" class="pull-right"><b><?php echo $_SESSION['username']; ?></b></a>
         </h3>
         <nav>
           <ul class="nav nav-justified">
-            <li><a href="home_employee.php">Employee</a></li>
-            <li><a href="home_deductions.php">Deduction/s</a></li>
-            <li><a href="home_salary.php">Income</a></li>
+            <li><a href="home_employee.php">Member</a></li>
+            <li><a href="home_deductions.php">Attends</a></li>
+            <li><a href="home_salary.php">Salary</a></li>
           </ul>
         </nav>
       </div><br>
 
       <!-- Jumbotron -->
       <div class="jumbotron">
-        <h1>PAYROLL MANAGEMENT</h1>
-        <p class="lead">This payroll management system has improvised all the basic exercise to manage the salary of the employees.</p>
+        <h1>PAYSHEET MANAGEMENT</h1>
+        <p class="lead">This paysheet management system has improvised all the basic exercise to manage the salary of the Members.</p>
         <link href="assets/pngkit_stryper-logo-png_6404575.png" rel="shortcut icon">
       </div>
 

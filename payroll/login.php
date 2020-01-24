@@ -44,7 +44,7 @@
         $password = mysqli_real_escape_string($connection,$password);
 
         //Checking is user existing in the database or not
-        $query = "SELECT * FROM `user` WHERE username='$username' and password='$password'";
+        $query = "SELECT * FROM `admin` WHERE username='$username' and password='$password'";
         $result = mysqli_query($connection,$query) or die(mysql_error());
         $rows = mysqli_num_rows($result);
 
