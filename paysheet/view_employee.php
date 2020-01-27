@@ -1,17 +1,17 @@
 <?php
   include("db.php"); //include auth.php file on all secure pages
   include("auth.php");
-$connection = mysqli_connect('localhost', 'root', '','payroll');
-  $sql = mysqli_query($connection,"SELECT * from deductions WHERE deduction_id='1'");
-  while($row = mysqli_fetch_array($sql))
+//$connection = mysqli_connect('localhost', 'root', '','payroll');
+ // $sql = mysqli_query($connection,"SELECT * from deductions WHERE deduction_id='1'");
+ /* while($row = mysqli_fetch_array($sql))
   {
     $phil = $row['philhealth'];
     $bir = $row['bir'];
     $gsis = $row['gsis'];
     $love = $row['pag_ibig'];
     $loans = $row['loans'];
-  }
-?>
+  }*/
+?> 
 
 <!DOCTYPE html>
 <html lang="en">
@@ -58,28 +58,28 @@ $connection = mysqli_connect('localhost', 'root', '','payroll');
     <div class="container">
       <div class="masthead">
         <h3>
-          <b><a href="index.php">Payroll Management System</a></b>
+          <b><a href="index.php">Paysheet Management System</a></b>
             <a data-toggle="modal" href="#colins" class="pull-right"><b>Admin</b></a>
         </h3>
         <nav>
           <ul class="nav nav-justified">
             <li class="active">
-              <a href="">Employee</a>
+              <a href="">Member</a>
             </li>
             <li>
-              <a href="home_deductions.php">Deduction/s</a>
+              <a href="home_deductions.php">Attendance</a>
             </li>
             <li>
-              <a href="home_salary.php">Income</a>
+              <a href="home_salary.php">Salary</a>
             </li>
           </ul>
         </nav>
       </div><br><br>
 
       <?php
-$connection = mysqli_connect('localhost', 'root', '','payroll');
-        $id=$_REQUEST['emp_id'];
-        $query = "SELECT * from employee where emp_id='".$id."'";
+$connection = mysqli_connect('localhost', 'root', '','paysheet');
+        $id=$_REQUEST['mem_id'];
+        $query = "SELECT * from member where mem_id='".$id."'";
         $result = mysqli_query($connection,$query) or die ( mysql_error());
 
         while ($row = mysqli_fetch_assoc($result))
@@ -89,61 +89,38 @@ $connection = mysqli_connect('localhost', 'root', '','payroll');
 
               <form class="form-horizontal" action="update_employee.php" method="post" name="form">
                 <input type="hidden" name="new" value="1" />
-                <input name="id" type="hidden" value="<?php echo $row['emp_id'];?>" />
+                <input name="id" type="hidden" value="<?php echo $row['mem_id'];?>" />
                   <div class="form-group">
                     <label class="col-sm-5 control-label"></label>
                     <div class="col-sm-4">
-                      <h2><?php echo $row['lname']; ?>, <?php echo $row['fname']; ?></h2>
+                      <h2><?php echo $row['name']; ?>
                     </div>
                   </div>
                   <div class="form-group">
-                    <label class="col-sm-5 control-label">Lastname  :</label>
+                    <label class="col-sm-5 control-label">Name  :</label>
                     <div class="col-sm-4">
-                      <input type="text" name="lname" class="form-control" value="<?php echo $row['lname'];?>" required="required">
+                      <input type="text" name="name" class="form-control" value="<?php echo $row['name'];?>" required="required">
                     </div>
                   </div>
                   <div class="form-group">
-                    <label class="col-sm-5 control-label">Firstname  :</label>
+                    <label class="col-sm-5 control-label">Address  :</label>
                     <div class="col-sm-4">
-                      <input type="text" name="fname" class="form-control" value="<?php echo $row['fname'];?>" required="required">
+                      <input type="text" name="address" class="form-control" value="<?php echo $row['address'];?>" required="required">
                     </div>
                   </div>
                   <div class="form-group">
-                    <label class="col-sm-5 control-label">Gender  :</label>
-                    <div class="col-sm-4">
-                    <select name="gender" class="form-control" required>
-                      <option value="<?php echo $row['gender'];?>"><?php echo $row['gender'];?></option>
-                      <option value="Male">Male</option>
-                      <option value="Female">Female</option>
-                    </select>
-                  </div>
+					<label class="col-sm-5 control-label">Age :</label>
+					<div class="col-sm-4">
+						<input type="text" name="age" class="form-control" value="<?php echo $row['age'];?>" required="required">
+					</div>
                   </div>
                   <div class="form-group">
-                    <label class="col-sm-5 control-label">Employee Type  :</label>
-                    <div class="col-sm-4">
-                      <select name="emp_type" class="form-control" required>
-                        <option value="<?php echo $row['emp_type'];?>"><?php echo $row['emp_type'];?></option>
-                        <option value="Job Order">Job Order</option>
-                        <option value="Regular">Regular</option>
-                        <option value="Casual">Casual</option>
-                      </select>
-                    </div>
+                    <label class="col-sm-5 control-label">Join Date :</label>
+                  <div class="col-sm-4">
+                   <input type="text" name="join_date" class="form-control" value="<?php echo $row['join_date'];?>" required="required">
                   </div>
-                  <div class="form-group">
-                    <label class="col-sm-5 control-label">Department  :</label>
-                    <div class="col-sm-4">
-                      <select name="division" class="form-control" placeholder="Division" required>
-                        <option value="<?php echo $row['division'];?>"><?php echo $row['division'];?></option>
-                        <option value="Admin">Admin</option>
-                        <option value="Human Resource">Human Resource</option>
-                        <option value="Accounting">Accounting</option>
-                        <option value="Engineering">Engineering</option>
-                        <option value="MIS">MIS</option>
-                        <option value="Supply">Supply</option>
-                        <option value="Maintenance">Maintenance</option>
-                        <option value="Control">Control</option>
-                      </select>
-                    </div>
+                  </div>
+                  
                   </div><br><br>
 
                   <div class="form-group">

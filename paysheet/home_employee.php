@@ -1,5 +1,5 @@
 <?php
-  include("auth.php"); //include auth.php file on all secure pages
+  include("auth.php"); 
   include("add_employee.php");
 
   $sql = mysqli_query($conn,"SELECT * from salary WHERE sal_id='1'");
@@ -25,31 +25,18 @@
     <meta name="keywords" content="HTML, CSS, JS, JavaScript, framework, bootstrap, front-end, frontend, web development">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
 
-    <title></title>
+   
 
-    <script>
-      <!--
-        var ScrollMsg= "Payroll Management System - "
-        var CharacterPosition=0;
-        function StartScrolling() {
-        document.title=ScrollMsg.substring(CharacterPosition,ScrollMsg.length)+
-        ScrollMsg.substring(0, CharacterPosition);
-        CharacterPosition++;
-        if(CharacterPosition > ScrollMsg.length) CharacterPosition=0;
-        window.setTimeout("StartScrolling()",150); }
-        StartScrolling();
-      // -->
-    </script>
+    
 
     <link href="assets/must.png" rel="shortcut icon">
     <link href="assets/css/justified-nav.css" rel="stylesheet">
 
 
     <link href="assets/css/bootstrap.min.css" rel="stylesheet">
-    <!-- <link href="data:text/css;charset=utf-8," data-href="assets/css/bootstrap-theme.min.css" rel="stylesheet" id="bs-theme-stylesheet"> -->
-    <!-- <link href="assets/css/docs.min.css" rel="stylesheet"> -->
+  
     <link href="assets/css/search.css" rel="stylesheet">
-    <!-- <link rel="stylesheet" href="assets/css/styles.css" /> -->
+   
     <link rel="stylesheet" type="text/css" href="assets/css/dataTables.min.css">
 
   </head>
@@ -81,7 +68,7 @@
             <form class="form-horizontal">
               <fieldset>
                 <button type="button" data-toggle="modal" data-target="#addEmployee" class="btn btn-success">Add New</button>
-                <p align="center"><big><b>List of Employees</b></big></p>
+                <p align="center"><big><b>List of Members</b></big></p>
                 <div class="table-responsive">
                   <form method="post" action="" >
                     <table class="table table-bordered table-hover table-condensed" id="myTable">
@@ -109,8 +96,7 @@
                             $address  =$row['address'];
                             $age   =$row['age'];
                             $join_date   =$row['join_date'];
-                            $overtime   =$row['overtime'];
-                            $bonus   =$row['bonus'];
+                            
                         ?>
 
                         <tr>

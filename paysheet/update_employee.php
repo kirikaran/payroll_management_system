@@ -3,20 +3,18 @@
   include("db.php");
   include("auth.php");
 
-  $id         = $_POST['id'];
-  $lname      = $_POST['lname'];
-  $fname      = $_POST['fname'];
-  $gender     = $_POST['gender'];
-  $division   = $_POST['division'];
-  $emp_type   = $_POST['emp_type'];
-$connection = mysqli_connect('localhost', 'root', '','payroll');
-  $sql = mysqli_query($connection,"UPDATE employee SET emp_type='$emp_type', lname='$lname', fname='$fname', gender='$gender', division='$division' WHERE emp_id='$id'");
+  $name      = $_POST['name'];
+    $address      = $_POST['address'];
+    $age     = $_POST['age'];
+    $join_date= $_POST['join_date'];
+$connection = mysqli_connect('localhost', 'root', '','paysheet');
+  $sql = mysqli_query($connection,"UPDATE member SET name='$name', address='$address', age='$age', join_date='$join_date',  WHERE mem_id='$id'");
 
   if ($sql)
   {
     ?>
     <script>
-      alert('Employee successfully updated.');
+      alert('member successfully updated.');
       window.location.href='home_employee.php';
     </script>
     <?php 
