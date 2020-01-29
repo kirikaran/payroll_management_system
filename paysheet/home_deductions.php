@@ -5,7 +5,7 @@
 
 <?php
 
- $conn = mysqli_connect('localhost', 'root', '','payroll');
+/* $conn = mysqli_connect('localhost', 'root', '','payroll');
   
   $query  = mysqli_query($conn,"SELECT * from deductions");
   while($row=mysqli_fetch_array($query))
@@ -18,7 +18,7 @@
     $loans        = $row['loans'];
 
     $total        = $philhealth + $bir + $gsis + $love + $loans;
-  }
+  }*/
 ?>
 
 <!DOCTYPE html>
@@ -66,73 +66,34 @@
     <div class="container">
       <div class="masthead">
         <h3>
-          <b><a href="index.php">Payroll Management System</a></b>
+          <b><a href="index.php">Paysheet Management System</a></b>
             <a data-toggle="modal" href="#colins" class="pull-right"><b>Admin</b></a>
         </h3>
         <nav>
           <ul class="nav nav-justified">
             <li>
-              <a href="home_employee.php">Employee</a>
+              <a href="home_employee.php">Member</a>
             </li>
             <li class="active">
-              <a data-toggle="modal" href="#deductions">Deduction/s</a>
+              <a data-toggle="modal" href="#deductions">Attendance</a>
             </li>
             <li>
-              <a href="home_salary.php">Income</a>
+              <a href="home_salary.php">Salary</a>
             </li>
           </ul>
         </nav>
       </div><br><br>
 
               <form class="form-horizontal" action="#" name="form">
-                <div class="form-group">
-                  <label class="col-sm-5 control-label">PhilHealth  :</label>
-                  <div class="col-sm-4">
-                    <?php echo $philhealth; ?>.00
-                  </div>
-                </div>
-                <div class="form-group">
-                  <label class="col-sm-5 control-label">BIR :</label>
-                  <div class="col-sm-4">
-                    <?php echo $bir; ?>.00
-                  </div>
-                </div>
-                <div class="form-group">
-                  <label class="col-sm-5 control-label">GSIS  :</label>
-                  <div class="col-sm-4">
-                    <?php echo $gsis; ?>.00
-                  </div>
-                </div>
-                <div class="form-group">
-                  <label class="col-sm-5 control-label">PAG-IBIG  :</label>
-                  <div class="col-sm-4">
-                    <?php echo $love; ?>.00
-                  </div>
-                </div>
-                <div class="form-group">
-                  <label class="col-sm-5 control-label">Loans :</label>
-                  <div class="col-sm-4">
-                    <?php echo $loans; ?>.00
-                  </div>
-                </div><br><br>
-                <div class="form-group">
-                  <label class="col-sm-5 control-label">Total Deductions :</label>
-                  <div class="col-sm-4">
-                    <?php echo $total; ?>.00
-                  </div>
-                </div>
-
-                <div class="form-group">
-                  <label class="col-sm-5 control-label"><button type="button" data-toggle="modal" data-target="#deductions" class="btn btn-danger">Update</button></label>
-                </div>
+               
               </form>
 
       <!-- this modal is for update an DEDUCTIONS -->
-      <div class="modal fade" id="deductions" role="dialog">
+      <!--<div class="modal fade" id="deductions" role="dialog">
         <div class="modal-dialog">
         
           <!-- Modal content-->
-          <div class="modal-content">
+       <!--   <div class="modal-content">
             <div class="modal-header" style="padding:20px 50px;">
               <button type="button" class="close" data-dismiss="modal" title="Close">&times;</button>
               <h3 align="center"><b>Deduction</b></h3>
@@ -182,7 +143,7 @@
             </div>
           </div>
         </div>
-      </div>
+      </div>--> 
 
       <!-- this modal is for my Colins -->
       <div class="modal fade" id="colins" role="dialog">

@@ -105,7 +105,7 @@
                           <td align="center"><a href="view_employee.php?mem_id=<?php echo $row["mem_id"]; ?>" title="Update"><?php echo $row['age'] ?></a></td>
                           <td align="center"><a href="view_employee.php?mem_id=<?php echo $row["mem_id"]; ?>" title="Update"><?php echo $row['join_date'] ?></a></td>
                           <td align="center">
-                            <a class="btn btn-primary" href="view_account.php?mem_id_id=<?php echo $row["mem_id"]; ?>">Account</a>
+                            <a class="btn btn-primary" href="view_employee.php?mem_id=<?php echo $row["mem_id"]; ?>">Update</a>
                             <a class="btn btn-danger" href="delete.php?mem_id=<?php echo $row["mem_id"]; ?>">Delete</a>
                           </td>
                         </tr>

@@ -4,11 +4,14 @@
 ?>
 
 <?php
-$conn = mysqli_connect('localhost', 'root', '','payroll');
-  $query  = mysqli_query($conn,"SELECT * from overtime");
+$conn = mysqli_connect('localhost', 'root', '','paysheet');
+  $query  = mysqli_query($conn,"SELECT * from salary");
   while($row=mysqli_fetch_array($query))
   {
-    @$rate           = $row['rate'];
+							$basic_salary= $basic_salary['basic_salary'];
+							$over_time=$over_time['over_time'];
+							$loan_deduction=$loan_deduction['loan_deduction'];
+							$festival_advance=$festival_advance['festival_advance'];
   }
 
   $query  = mysqli_query($conn,"SELECT * from salary");
@@ -105,32 +108,35 @@ $conn = mysqli_connect('localhost', 'root', '','payroll');
                       </thead>
                       <tbody>
                         <?php
-						$conn = mysqli_connect('localhost', 'root', '','payroll');
-                          $query  = mysqli_query($conn,"SELECT * from overtime");
-                          while($row=mysqli_fetch_array($query))
-                          {
-                            $rate   = $row['rate'];
-                          }
-
+						$conn = mysqli_connect('localhost', 'root', '','paysheet');
                           $query  = mysqli_query($conn,"SELECT * from salary");
                           while($row=mysqli_fetch_array($query))
                           {
-                            $salary_rate   = $row['salary_rate'];
+                            $basic_salary= $basic_salary['basic_salary'];
+							$over_time=$over_time['over_time'];
+							$loan_deduction=$loan_deduction['loan_deduction'];
+							$festival_advance=$festival_advance['festival_advance'];
                           }
 
-                          $query  = mysqli_query($conn,"SELECT * from employee");
+                         /* $query  = mysqli_query($conn,"SELECT * from salary");
                           while($row=mysqli_fetch_array($query))
                           {
-                            $lname           = $row['lname'];
-                            $fname           = $row['fname'];
-                            $deduction       = $row['deduction'];
-                            $overtime        = $row['overtime'];
-                            $bonus           = $row['bonus'];
+                            $salary_rate   = $row['salary_rate'];
+                          }*/
 
+                          $query  = mysqli_query($conn,"SELECT * from member");
+                          while($row=mysqli_fetch_array($query))
+                          {
+                           $name      = $_POST['name'];
+							$address      = $_POST['address'];
+							$age     = $_POST['age'];
+							$join_date= $_POST['join_date'];
+							
+							
                             $over     = $row['overtime'] * $rate;
                             $bonus     = $row['bonus'];
-                            $deduction  = $row['deduction'];
-                            $income   = $over + $bonus + $salary_rate;
+                            $deduction  = $row['loan_deduction']+$row['festival_advance'];
+                            $income   = $basic_salary*20+$over_time*200;
                             $netpay   = $income - $deduction;
                         ?>
                         <tr>
