@@ -1,27 +1,33 @@
 <?php
-	
-		require("db.php");
-		$conn = mysqli_connect('localhost', 'root', '','payroll');
-		@$id 			= $_POST['deduction_id'];
-		@$philhealth 	= $_POST['philhealth'];
-		@$bir 			= $_POST['bir'];
-		@$gsis 			= $_POST['gsis'];
-		@$love 			= $_POST['pag_ibig'];
-		@$loans 		= $_POST['loans'];
 
-
-		$sql = mysqli_query($conn,"UPDATE deductions SET bir='$bir', gsis='$gsis', pag_ibig='$love', loans='$loans', philhealth='$philhealth' WHERE deduction_id='1'");
+	$conn = mysqli_connect('localhost', 'root', '','paysheet');
+if(isset($_POST['submit'])!="")
+  {
+		
+		//@$sal_id=$_POST['mem_id'];
+		//@$mem_id=$_GET['mem_id'];
+		@$attendance=$_POST['attendance'];
+		$sql1 = mysqli_query($conn,"SELECT name FROM member WHERE mem_id");
+		$sql = mysqli_query($conn,"INSERT INTO salary(name,attendance) VALUES('$sql1,$attendance')");
 
 		if($sql)
-		{
-			?>
-		        <script>
-		            alert('Deductions successfully updated...');
-		            window.location.href='home_deductions.php';
-		        </script>
-		    <?php 
-		}
-		else {
-			echo "Not Successfull!"; 
-		}
+    {
+      ?>
+        <script>
+            alert('Attendance had been successfully added.');
+            window.location.href='index.php';
+        </script>
+      <?php 
+    }
+
+    else
+    {
+      ?>
+        <script>
+            alert('Invalid.');
+            window.location.href='index.php';
+        </script>
+      <?php 
+    }
+  }
  ?>

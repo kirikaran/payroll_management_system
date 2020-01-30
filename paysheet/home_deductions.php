@@ -1,26 +1,8 @@
 <?php
   include("auth.php"); //include auth.php file on all secure pages
-  include("add_employee.php");
-?>
-
-<?php
-
-/* $conn = mysqli_connect('localhost', 'root', '','payroll');
   
-  $query  = mysqli_query($conn,"SELECT * from deductions");
-  while($row=mysqli_fetch_array($query))
-  {
-    $id           = $row['deduction_id'];
-    $philhealth   = $row['philhealth'];
-    $bir          = $row['bir'];
-    $gsis         = $row['gsis'];
-    $love         = $row['pag_ibig'];
-    $loans        = $row['loans'];
-
-    $total        = $philhealth + $bir + $gsis + $love + $loans;
-  }*/
+  include("add_deductions.php");
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -87,7 +69,44 @@
               <form class="form-horizontal" action="#" name="form">
                
               </form>
+<div class="modal-dialog">
+        
+          <!-- Modal content-->
+		
+          <div class="modal-content">
+            <div class="modal-header" style="padding:20px 50px;">
+              <button type="button" class="close" data-dismiss="modal" title="Close">&times;</button>
+              <h3 align="center"><b>Attendance Month</b></h3>
+            </div>
+            <div class="modal-body" style="padding:40px 50px;">
 
+              <form class="form-horizontal" action="#" name="form" method="get">
+			  <div class="form-group">
+                  <label class="col-sm-4 control-label">Name</label>
+                  <div class="col-sm-8">
+                    <input type="text" name="sale_id" class="form-control" placeholder="Name" required="required">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="col-sm-4 control-label">Number Of Days</label>
+                  <div class="col-sm-8">
+                    <input type="number" name="attendance" class="form-control" placeholder="Number Of Days" required="required">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="col-sm-4 control-label"></label>
+                  <div class="col-sm-8">
+                    <input type="submit" name="submit" class="btn btn-success" value="Submit">
+                    <input type="reset" name="" class="btn btn-danger" value="Clear Fields">
+                  </div>
+
+              </form>
+
+            </div>
+          </div>
+        </div>
+		</div>
+		<div>
       <!-- this modal is for update an DEDUCTIONS -->
       <!--<div class="modal fade" id="deductions" role="dialog">
         <div class="modal-dialog">
@@ -162,7 +181,7 @@
             </div>
           </div>
         </div>
-      </div>
+      
 
     </div>
 

@@ -21,6 +21,8 @@ $conn = mysqli_connect('localhost', 'root', '','paysheet');
   }
 ?>
 
+
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -36,17 +38,6 @@ $conn = mysqli_connect('localhost', 'root', '','paysheet');
     <title></title>
 
     <script>
-      <!--
-        var ScrollMsg= "Payroll Management System - "
-        var CharacterPosition=0;
-        function StartScrolling() {
-        document.title=ScrollMsg.substring(CharacterPosition,ScrollMsg.length)+
-        ScrollMsg.substring(0, CharacterPosition);
-        CharacterPosition++;
-        if(CharacterPosition > ScrollMsg.length) CharacterPosition=0;
-        window.setTimeout("StartScrolling()",150); }
-        StartScrolling();
-      // -->
     </script>
 
     <link href="assets/must.png" rel="shortcut icon">
