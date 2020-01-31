@@ -4,21 +4,21 @@
 ?>
 
 <?php
-$conn = mysqli_connect('localhost', 'root', '','paysheet');
-  $query  = mysqli_query($conn,"SELECT * from salary");
-  while($row=mysqli_fetch_array($query))
-  {
-							$basic_salary= $basic_salary['basic_salary'];
-							$over_time=$over_time['over_time'];
-							$loan_deduction=$loan_deduction['loan_deduction'];
-							$festival_advance=$festival_advance['festival_advance'];
-  }
+// $conn = mysqli_connect('localhost', 'root', '','paysheet');
+//   $query  = mysqli_query($conn,"SELECT * from salary");
+//   while($row=mysqli_fetch_array($query))
+//   {
+// 							$basic_salary= $basic_salary['basic_salary'];
+// 							$over_time=$over_time['over_time'];
+// 							$loan_deduction=$loan_deduction['loan_deduction'];
+// 							$festival_advance=$festival_advance['festival_advance'];
+//   }
 
-  $query  = mysqli_query($conn,"SELECT * from salary");
-  while($row=mysqli_fetch_array($query))
-  {
-    @$salary           = $row['salary_rate'];
-  }
+//   $query  = mysqli_query($conn,"SELECT * from salary");
+//   while($row=mysqli_fetch_array($query))
+//   {
+//     @$salary           = $row['salary_rate'];
+//   }
 ?>
 
 
@@ -63,13 +63,13 @@ $conn = mysqli_connect('localhost', 'root', '','paysheet');
         <nav>
           <ul class="nav nav-justified">
             <li>
-              <a href="home_employee.php">Employee</a>
+              <a href="home_employee.php">Member</a>
             </li>
             <li>
-              <a href="home_deductions.php">Deduction/s</a>
+              <a href="home_deductions.php">Attendance</a>
             </li>
             <li class="active">
-              <a href="">Income</a>
+              <a href="">Salary</a>
             </li>
           </ul>
         </nav>
@@ -78,81 +78,84 @@ $conn = mysqli_connect('localhost', 'root', '','paysheet');
         <br>
           <div class="well bs-component">
             <form class="form-horizontal">
-              <fieldset>
-                <button type="button" data-toggle="modal" data-target="#overtime" class="btn btn-success">Modify Overtime Rate</button>
-                <button type="button" data-toggle="modal" data-target="#salary" class="btn btn-primary">Modify Salary Rate</button>
-                <p class="pull-right">Overtime rate per hour: <big><b><?php echo $rate; ?>.00</b></big></p><br>
-                <p class="pull-right">Salary rate: <big><b><?php echo $salary; ?>.00</b></big></p>
-                <p align="center"><big><b>Account</b></big></p>
-                <div class="table-responsive">
-                  <form method="post" action="" >
-                    <table class="table table-bordered table-hover table-condensed" id="myTable">
-                      <!-- <h3><b>Ordinance</b></h3> -->
-                      <thead>
-                        <tr class="info">
-                          <th><p align="center">Name</p></th>
-                          <th><p align="center">Deduction</p></th>
-                          <th><p align="center">Overtime</p></th>
-                          <th><p align="center">Bonus</p></th>
-                          <th><p align="center">Net Pay</p></th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <?php
-						$conn = mysqli_connect('localhost', 'root', '','paysheet');
-                          $query  = mysqli_query($conn,"SELECT * from salary");
-                          while($row=mysqli_fetch_array($query))
-                          {
-                            $basic_salary= $basic_salary['basic_salary'];
-							$over_time=$over_time['over_time'];
-							$loan_deduction=$loan_deduction['loan_deduction'];
-							$festival_advance=$festival_advance['festival_advance'];
-                          }
+            <?php
+              $query = "SELECT * from member where mem_id='".$id."'";
+$connection = mysqli_connect('localhost', 'root', '','paysheet');
+       
 
-                         /* $query  = mysqli_query($conn,"SELECT * from salary");
-                          while($row=mysqli_fetch_array($query))
-                          {
-                            $salary_rate   = $row['salary_rate'];
-                          }*/
+       
 
-                          $query  = mysqli_query($conn,"SELECT * from member");
-                          while($row=mysqli_fetch_array($query))
-                          {
-                           $name      = $_POST['name'];
-							$address      = $_POST['address'];
-							$age     = $_POST['age'];
-							$join_date= $_POST['join_date'];
-							
-							
-                            $over     = $row['overtime'] * $rate;
-                            $bonus     = $row['bonus'];
-                            $deduction  = $row['loan_deduction']+$row['festival_advance'];
-                            $income   = $basic_salary*20+$over_time*200;
-                            $netpay   = $income - $deduction;
-                        ?>
-                        <tr>
-                          <td align="center"><?php echo $lname?>, <?php echo $fname?></td>
-                          <td align="center"><big><b><?php echo $deduction?></b></big>.00</td>
-                          <td align="center"><big><b><?php echo $overtime?></b></big> hrs</td>
-                          <td align="center"><big><b><?php echo $bonus?></b></big>.00</td>
-                          <td align="center"><big><b><?php echo $netpay?></b></big>.00</td>
-                        </tr>
-                        <?php } ?>
-                      </tbody>
+          ?>
 
-                        <tr class="info">
-                          <th><p align="center">Name</p></th>
-                          <th><p align="center">Deduction</p></th>
-                          <th><p align="center">Overtime</p></th>
-                          <th><p align="center">Bonus</p></th>
-                          <th><p align="center">Net Pay</p></th>
-                        </tr>
-                    </table>
-                  </form>
-                </div>
-              </fieldset>
-            </form>
+              <form class="form-horizontal" action="update_salary.php" method="post" name="form">
+                <input type="hidden" name="new" value="1" />
+                <input name="id" type="hidden"  />
+                  <div class="form-group">
+                    <label class="col-sm-5 control-label"></label>
+                    <div class="col-sm-4">
+                      
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="col-sm-5 control-label">Basic Salary  :</label>
+                    <div class="col-sm-4">
+                      <input type="number" name="basic_salary" class="form-control" required="required">
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="col-sm-5 control-label">Address  :</label>
+                    <div class="col-sm-4">
+                      <input type="number" name="over_time" class="form-control"  required="required">
+                    </div>
+                  </div>
+                  <div class="form-group">
+					<label class="col-sm-5 control-label">Age :</label>
+					<div class="col-sm-4">
+						<input type="number" name="loan_deduction" class="form-control" required="required">
+					</div>
+                  </div>
+                  <div class="form-group">
+                    <label class="col-sm-5 control-label">Join Date :</label>
+                  <div class="col-sm-4">
+                   <input type="number" name="festival_advance" class="form-control"  required="required">
+                  </div>
+                  </div>
+                  
+                  </div><br><br>
+
+                  <div class="form-group">
+                    <label class="col-sm-5 control-label"></label>
+                    <div class="col-sm-4">
+                      <input type="submit" name="submit" value="Update" class="btn btn-danger">
+                      <a href="home_salary.php" class="btn btn-primary">Cancel</a>
+                    </div>
+                  </div>
+              </form>
+            <?php
+          
+        ?>
+
+      <!-- this modal is for my Colins -->
+      <div class="modal fade" id="colins" role="dialog">
+        <div class="modal-dialog modal-sm">
+              
+          <!-- Modal content-->
+          <div class="modal-content">
+            <div class="modal-header" style="padding:20px 50px;">
+              <button type="button" class="close" data-dismiss="modal" title="Close">&times;</button>
+              <h3 align="center">You are logged in as <b><?php echo $_SESSION['username']; ?></b></h3>
+            </div>
+            <div class="modal-body" style="padding:40px 50px;">
+              <div align="center">
+                <a href="logout.php" class="btn btn-block btn-danger">Logout</a>
+              </div>
+            </div>
           </div>
+        </div>
+      </div>
+
+    </div>
+
 
       <!-- this modal is for OVERTIME -->
       <div class="modal fade" id="overtime" role="dialog">

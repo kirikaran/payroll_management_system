@@ -80,11 +80,11 @@
             </div>
             <div class="modal-body" style="padding:40px 50px;">
 
-              <form class="form-horizontal" action="#" name="form" method="get">
+              <form class="form-horizontal" action="#" name="form" method="post">
 			  <div class="form-group">
                   <label class="col-sm-4 control-label">Name</label>
                   <div class="col-sm-8">
-                    <input type="text" name="sale_id" class="form-control" placeholder="Name" required="required">
+                    <input type="number" name="sal_id" class="form-control" placeholder="Name" required="required">
                   </div>
                 </div>
                 <div class="form-group">

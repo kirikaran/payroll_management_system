@@ -2,15 +2,15 @@
   include("auth.php"); 
   include("add_employee.php");
 
-  $sql = mysqli_query($conn,"SELECT * from salary WHERE sal_id='1'");
-  while($row = mysqli_fetch_array($sql))
-  {
-    $phil = $row['philhealth'];
-    $bir = $row['bir'];
-    $gsis = $row['gsis'];
-    $love = $row['pag_ibig'];
-    $loans = $row['loans'];
-  }
+  // $sql = mysqli_query($conn,"SELECT * from salary WHERE sal_id='1'");
+  // while($row = mysqli_fetch_array($sql))
+  // {
+  //   $phil = $row['philhealth'];
+  //   $bir = $row['bir'];
+  //   $gsis = $row['gsis'];
+  //   $love = $row['pag_ibig'];
+  //   $loans = $row['loans'];
+  // }
 ?>
 
 <!DOCTYPE html>
