@@ -80,11 +80,24 @@
             </div>
             <div class="modal-body" style="padding:40px 50px;">
 
-              <form class="form-horizontal" action="#" name="form" method="post">
+              <form class="form-horizontal" action="add_deductions.php" name="form" method="post">
 			  <div class="form-group">
                   <label class="col-sm-4 control-label">Name</label>
+                  <select name="mem_id" id="">
+                  <?php $connection = mysqli_connect('localhost', 'root', '','paysheet');
+        //$id=$_REQUEST['mem_id'];
+        $query = "SELECT * from member";
+        $result = mysqli_query($connection,$query) or die ( mysql_error());
+        while ($row = mysqli_fetch_assoc($result))
+        {
+          ?>
+          <option value="<?php echo $row["mem_id"] ?>"><?php echo $row["name"] ?></option>
+          <?php
+        }
+ ?>
+                  </select>
                   <div class="col-sm-8">
-                    <input type="number" name="sal_id" class="form-control" placeholder="Name" required="required">
+                    
                   </div>
                 </div>
                 <div class="form-group">
