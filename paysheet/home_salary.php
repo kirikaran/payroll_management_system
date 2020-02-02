@@ -76,140 +76,73 @@
       </div>
 
         <br>
-          <div class="well bs-component">
-            <form class="form-horizontal">
-            <?php
-              $query = "SELECT * from member where mem_id='".$id."'";
-$connection = mysqli_connect('localhost', 'root', '','paysheet');
-       
+        <div class="modal-dialog">
+        
+        <!-- Modal content-->
+  
+        <div class="modal-content">
+          <div class="modal-header" style="padding:20px 50px;">
+           
+            <h3 align="center"><b>Attendance Month</b></h3>
+          </div>
+          <div class="modal-body" style="padding:40px 50px;">
 
-       
-
-          ?>
-
-              <form class="form-horizontal" action="update_salary.php" method="post" name="form">
-                <input type="hidden" name="new" value="1" />
-                <input name="id" type="hidden"  />
-                  <div class="form-group">
-                    <label class="col-sm-5 control-label"></label>
-                    <div class="col-sm-4">
-                      
-                    </div>
-                  </div>
-                  <div class="form-group">
-                    <label class="col-sm-5 control-label">Basic Salary  :</label>
-                    <div class="col-sm-4">
-                      <input type="number" name="basic_salary" class="form-control" required="required">
-                    </div>
-                  </div>
-                  <div class="form-group">
-                    <label class="col-sm-5 control-label">Address  :</label>
-                    <div class="col-sm-4">
-                      <input type="number" name="over_time" class="form-control"  required="required">
-                    </div>
-                  </div>
-                  <div class="form-group">
-					<label class="col-sm-5 control-label">Age :</label>
-					<div class="col-sm-4">
-						<input type="number" name="loan_deduction" class="form-control" required="required">
-					</div>
-                  </div>
-                  <div class="form-group">
-                    <label class="col-sm-5 control-label">Join Date :</label>
-                  <div class="col-sm-4">
-                   <input type="number" name="festival_advance" class="form-control"  required="required">
-                  </div>
-                  </div>
+            <form class="form-horizontal" action="add_salary.php" name="form" method="post">
+      <div class="form-group">
+                <label class="col-sm-4 control-label">Name</label>
+                <div class="col-sm-8">
+                <select name="mem_id" id="id">
+               
                   
-                  </div><br><br>
-
-                  <div class="form-group">
-                    <label class="col-sm-5 control-label"></label>
-                    <div class="col-sm-4">
-                      <input type="submit" name="submit" value="Update" class="btn btn-danger">
-                      <a href="home_salary.php" class="btn btn-primary">Cancel</a>
-                    </div>
-                  </div>
-              </form>
-            <?php
-          
+                  
+                <?php $connection = mysqli_connect('localhost', 'root', '','paysheet');
+      //$id=$_REQUEST['mem_id'];
+      $query = "SELECT * from member";
+      $result = mysqli_query($connection,$query) or die ( mysql_error());
+      while ($row = mysqli_fetch_assoc($result))
+      {
         ?>
+        <option value="<?php echo $row["mem_id"] ?>"><?php echo $row["name"] ?></option>
+        <?php
+      }
+?>
 
-      <!-- this modal is for my Colins -->
-      <div class="modal fade" id="colins" role="dialog">
-        <div class="modal-dialog modal-sm">
-              
-          <!-- Modal content-->
-          <div class="modal-content">
-            <div class="modal-header" style="padding:20px 50px;">
-              <button type="button" class="close" data-dismiss="modal" title="Close">&times;</button>
-              <h3 align="center">You are logged in as <b><?php echo $_SESSION['username']; ?></b></h3>
-            </div>
-            <div class="modal-body" style="padding:40px 50px;">
-              <div align="center">
-                <a href="logout.php" class="btn btn-block btn-danger">Logout</a>
+                </select>
+                </div>
+               
               </div>
-            </div>
+              <div class="form-group">
+                <label class="col-sm-4 control-label">over_time</label>
+                <div class="col-sm-3">
+                  <input type="number" name="over_time" class="form-control" placeholder="Number Of Days" required="required">
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col-sm-4 control-label">loan_deduction</label>
+                <div class="col-sm-3">
+                  <input type="number" name="loan_deduction" class="form-control" placeholder="Number Of Days" required="required">
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col-sm-4 control-label">festival_advance</label>
+                <div class="col-sm-3">
+                  <input type="number" name="festival_advance" class="form-control" placeholder="Number Of Days" required="required">
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col-sm-4 control-label"></label>
+                <div class="col-sm-8">
+                  <input type="submit" name="submit" class="btn btn-success" value="Submit">
+                  <input type="reset" name="" class="btn btn-danger" value="Clear Fields">
+                </div>
+
+            </form>
+
           </div>
         </div>
       </div>
-
-    </div>
-
-
-      <!-- this modal is for OVERTIME -->
-      <div class="modal fade" id="overtime" role="dialog">
-        <div class="modal-dialog modal-sm">
-        
-          <!-- Modal content-->
-          <div class="modal-content">
-            <div class="modal-header" style="padding:20px 50px;">
-              <button type="button" class="close" data-dismiss="modal" title="Close">&times;</button>
-              <h3 align="center">Enter the amount of <big><b>Overtime</b></big> rate per hour.</h3>
-            </div>
-            <div class="modal-body" style="padding:40px 50px;">
-
-              <form class="form-horizontal" action="update_overtime.php" name="form" method="post">
-                <div class="form-group">
-                    <input type="text" name="rate" class="form-control" value="<?php echo $rate; ?>" required="required">
-                </div>
-
-                <div class="form-group">
-                    <input type="submit" name="submit" class="btn btn-success" value="Submit">
-                </div>
-              </form>
-
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- this modal is for SALARY -->
-      <div class="modal fade" id="salary" role="dialog">
-        <div class="modal-dialog modal-sm">
-        
-          <!-- Modal content-->
-          <div class="modal-content">
-            <div class="modal-header" style="padding:20px 50px;">
-              <button type="button" class="close" data-dismiss="modal" title="Close">&times;</button>
-              <h3 align="center">Enter the amount of <big><b>Salary</b></big> rate.</h3>
-            </div>
-            <div class="modal-body" style="padding:40px 50px;">
-
-              <form class="form-horizontal" action="update_salary.php" name="form" method="post">
-                <div class="form-group">
-                    <input type="text" name="salary_rate" class="form-control" value="<?php echo $salary; ?>" required="required">
-                </div>
-
-                <div class="form-group">
-                    <input type="submit" name="submit" class="btn btn-success" value="Submit">
-                </div>
-              </form>
-
-            </div>
-          </div>
-        </div>
-      </div>
+  </div>
+  <div>
 
       <!-- this modal is for my Colins -->
       <div class="modal fade" id="colins" role="dialog">

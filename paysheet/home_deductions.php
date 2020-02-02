@@ -75,7 +75,7 @@
 		
           <div class="modal-content">
             <div class="modal-header" style="padding:20px 50px;">
-              <button type="button" class="close" data-dismiss="modal" title="Close">&times;</button>
+             
               <h3 align="center"><b>Attendance Month</b></h3>
             </div>
             <div class="modal-body" style="padding:40px 50px;">
@@ -83,7 +83,11 @@
               <form class="form-horizontal" action="add_deductions.php" name="form" method="post">
 			  <div class="form-group">
                   <label class="col-sm-4 control-label">Name</label>
-                  <select name="mem_id" id="">
+                  <div class="col-sm-8">
+                  <select name="mem_id" id="id">
+                 
+                    
+                    
                   <?php $connection = mysqli_connect('localhost', 'root', '','paysheet');
         //$id=$_REQUEST['mem_id'];
         $query = "SELECT * from member";
@@ -95,14 +99,14 @@
           <?php
         }
  ?>
+ 
                   </select>
-                  <div class="col-sm-8">
-                    
                   </div>
+                 
                 </div>
                 <div class="form-group">
                   <label class="col-sm-4 control-label">Number Of Days</label>
-                  <div class="col-sm-8">
+                  <div class="col-sm-3">
                     <input type="number" name="attendance" class="form-control" placeholder="Number Of Days" required="required">
                   </div>
                 </div>
