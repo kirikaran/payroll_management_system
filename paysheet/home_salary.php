@@ -87,7 +87,7 @@
           </div>
           <div class="modal-body" style="padding:40px 50px;">
 
-            <form class="form-horizontal" action="add_salary.php" name="form" method="post">
+            <form class="form-horizontal" action="add_salary.php" name="form" method="GET">
       <div class="form-group">
                 <label class="col-sm-4 control-label">Name</label>
                 <div class="col-sm-8">
@@ -132,7 +132,7 @@
               <div class="form-group">
                 <label class="col-sm-4 control-label"></label>
                 <div class="col-sm-8">
-                  <input type="submit" name="submit" class="btn btn-success" value="Submit">
+                  <input type="submit" name="submit" class="btn btn-success"   value="Submit">
                   <input type="reset" name="" class="btn btn-danger" value="Clear Fields">
                 </div>
 
