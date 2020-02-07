@@ -1,23 +1,14 @@
 <?php
   include("db.php"); //include auth.php file on all secure pages
   include("auth.php");
-//$connection = mysqli_connect('localhost', 'root', '','payroll');
- // $sql = mysqli_query($connection,"SELECT * from deductions WHERE deduction_id='1'");
- /* while($row = mysqli_fetch_array($sql))
-  {
-    $phil = $row['philhealth'];
-    $bir = $row['bir'];
-    $gsis = $row['gsis'];
-    $love = $row['pag_ibig'];
-    $loans = $row['loans'];
-  }*/
+
 ?> 
 
 <!DOCTYPE html>
 <html lang="en">
   <head>
 
-    <!-- Meta, title, CSS, favicons, etc. -->
+   
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -28,17 +19,7 @@
     <title></title>
 
     <script>
-      <!--
-        var ScrollMsg= "Payroll and Management System - "
-        var CharacterPosition=0;
-        function StartScrolling() {
-        document.title=ScrollMsg.substring(CharacterPosition,ScrollMsg.length)+
-        ScrollMsg.substring(0, CharacterPosition);
-        CharacterPosition++;
-        if(CharacterPosition > ScrollMsg.length) CharacterPosition=0;
-        window.setTimeout("StartScrolling()",150); }
-        StartScrolling();
-      // -->
+     
     </script>
 
     <link href="assets/must.png" rel="shortcut icon">
@@ -46,8 +27,7 @@
 
 
     <link href="assets/css/bootstrap.min.css" rel="stylesheet">
-    <!-- <link href="data:text/css;charset=utf-8," data-href="assets/css/bootstrap-theme.min.css" rel="stylesheet" id="bs-theme-stylesheet"> -->
-    <!-- <link href="assets/css/docs.min.css" rel="stylesheet"> -->
+    
     <link href="assets/css/search.css" rel="stylesheet">
     <!-- <link rel="stylesheet" href="assets/css/styles.css" /> -->
     <link rel="stylesheet" type="text/css" href="assets/css/dataTables.min.css">
@@ -67,7 +47,7 @@
               <a href="">Member</a>
             </li>
             <li>
-              <a href="home_deductions.php">Attendance</a>
+              <a href="home_attendance.php">Attendance</a>
             </li>
             <li>
               <a href="home_salary.php">Salary</a>
@@ -87,7 +67,7 @@ $connection = mysqli_connect('localhost', 'root', '','paysheet');
 
           ?>
 
-              <form class="form-horizontal" action="update_employee.php" method="post" name="form">
+              <form class="form-horizontal" action="update_member.php" method="post" name="form">
                 <input type="hidden" name="new" value="1" />
                 <input name="id" type="hidden" value="<?php echo $row['mem_id'];?>" />
                   <div class="form-group">
@@ -127,7 +107,7 @@ $connection = mysqli_connect('localhost', 'root', '','paysheet');
                     <label class="col-sm-5 control-label"></label>
                     <div class="col-sm-4">
                       <input type="submit" name="submit" value="Update" class="btn btn-danger">
-                      <a href="home_employee.php" class="btn btn-primary">Cancel</a>
+                      <a href="home_member.php" class="btn btn-primary">Cancel</a>
                     </div>
                   </div>
               </form>

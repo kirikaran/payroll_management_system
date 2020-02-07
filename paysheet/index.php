@@ -1,6 +1,6 @@
 <?php
   include("auth.php"); //include auth.php file on all secure pages
-  include("add_employee.php");
+  include("add_member.php");
 ?>
 
 
@@ -19,17 +19,7 @@
     <title></title>
 
     <script>
-      <!--
-        var ScrollMsg= "Payroll Management System - "
-        var CharacterPosition=0;
-        function StartScrolling() {
-        document.title=ScrollMsg.substring(CharacterPosition,ScrollMsg.length)+
-        ScrollMsg.substring(0, CharacterPosition);
-        CharacterPosition++;
-        if(CharacterPosition > ScrollMsg.length) CharacterPosition=0;
-        window.setTimeout("StartScrolling()",150); }
-        StartScrolling();
-      // -->
+     
     </script>
 
     <link href="assets/must.png" rel="shortcut icon">
@@ -40,6 +30,8 @@
     <!-- <link href="data:text/css;charset=utf-8," data-href="assets/css/bootstrap-theme.min.css" rel="stylesheet" id="bs-theme-stylesheet"> -->
     <!-- <link href="assets/css/docs.min.css" rel="stylesheet"> -->
     <link href="assets/css/search.css" rel="stylesheet">
+    <link href="assets/css/login.css" rel="stylesheet">
+
     <!-- <link rel="stylesheet" href="assets/css/styles.css" /> -->
     <link rel="stylesheet" type="text/css" href="assets/css/dataTables.min.css">
 
@@ -54,8 +46,8 @@
         </h3>
         <nav>
           <ul class="nav nav-justified">
-            <li><a href="home_employee.php">Member</a></li>
-            <li><a href="home_deductions.php">Attends</a></li>
+            <li><a href="home_member.php">Member</a></li>
+            <li><a href="home_attendance.php">Attendance</a></li>
             <li><a href="home_salary.php">Salary</a></li>
           </ul>
         </nav>

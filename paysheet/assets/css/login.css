@@ -1,10 +1,8 @@
 body {
-	background: #DCDDDF url(http://cssdeck.com/uploads/media/items/7/7AF2Qzt.png);
-	color: #000;
-	font: 14px Arial;
-	margin: 0 auto;
-	padding: 0;
+	background: rgb(2,0,36);
+	/* background: radial-gradient(circle, rgba(63,94,251,1) 0%, rgba(252,70,107,1) 100%); 	padding: 0; */
 	position: relative;
+	background-image: linear-gradient(to right, #6a11cb 0%, #2575fc 100%);
 }
 h1{ font-size:28px;}
 h2{ font-size:26px;}
@@ -32,9 +30,9 @@ form:after {
 .container { margin: 25px auto; position: relative; width: 900px; }
 #content {
 	background: #f9f9f9;
-	background: -moz-linear-gradient(top,  rgba(248,248,248,1) 0%, rgba(249,249,249,1) 100%);
-	background: -webkit-linear-gradient(top,  rgba(248,248,248,1) 0%,rgba(249,249,249,1) 100%);
-	background: -o-linear-gradient(top,  rgba(248,248,248,1) 0%,rgba(249,249,249,1) 100%);
+	background: -moz-linear-gradient(top,  rgb(54, 35, 35) 0%, rgb(22, 9, 9) 100%);
+	background: -webkit-linear-gradient(top,  rgb(141, 114, 114) 0%,rgba(249,249,249,1) 100%);
+	background: -o-linear-gradient(top,  rgba(248,248,248,1) 0%,rgb(70, 21, 21) 100%);
 	background: -ms-linear-gradient(top,  rgba(248,248,248,1) 0%,rgba(249,249,249,1) 100%);
 	background: linear-gradient(top,  rgba(248,248,248,1) 0%,rgba(249,249,249,1) 100%);
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f8f8f8', endColorstr='#f9f9f9',GradientType=0 );

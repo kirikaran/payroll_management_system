@@ -5,9 +5,14 @@ body
 	font-family: Arial, sans-serif;
 	font-size: 14px;
 	line-height: 150%;
-	background: #eee;
+	background: rgb(109, 14, 14);
 	position: relative;
 	height: 100%;
+}
+.main{
+	background: rgb(112, 43, 43);
+
+
 }
 .headerContainer,
 .bodyContainer,

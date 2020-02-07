@@ -15,7 +15,7 @@ $connection = mysqli_connect('localhost', 'root', '','paysheet');
     ?>
     <script>
       alert('member successfully updated.');
-      window.location.href='home_employee.php';
+      window.location.href='home_member.php';
     </script>
     <?php 
   }
@@ -24,7 +24,7 @@ $connection = mysqli_connect('localhost', 'root', '','paysheet');
     ?>
     <script>
       alert('Invalid action.');
-      window.location.href='home_employee.php';
+      window.location.href='home_member.php';
     </script>
     <?php 
   }
