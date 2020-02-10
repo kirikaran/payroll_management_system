@@ -55,6 +55,7 @@
             $income   = $over+ $basic_salary;
             $netpay   = $income - $deduction;
             $member=$row['name'];
+            $mem=$row['mem_id'];
           ?>
 
           <!-- <table class="table table-bordered table-hover table-condensed" id="myTable">
@@ -95,14 +96,7 @@
 							<img class="img-responsive" alt="#" src="#" style="width: 71px; border-radius: 43px;">
 						</div>
 					</div>
-					<div class="col-xs-6 col-sm-6 col-md-6 text-right">
-						<div class="receipt-right">
-							<h5>TechiTouch.</h5>
-							<p>+91 12345-6789 <i class="fa fa-phone"></i></p>
-							<p>info@gmail.com <i class="fa fa-envelope-o"></i></p>
-							<p>Australia <i class="fa fa-location-arrow"></i></p>
-						</div>
-					</div>
+					
 				</div>
             </div>
 			
@@ -110,15 +104,14 @@
 				<div class="receipt-header receipt-header-mid">
 					<div class="col-xs-8 col-sm-8 col-md-8 text-left">
 						<div class="receipt-right">
-							<h5>Gurdeep Singh <small>  |   Lucky Number : 156</small></h5>
-							<p><b>Mobile :</b> +91 12345-6789</p>
-							<p><b>Email :</b> info@gmail.com</p>
-							<p><b>Address :</b> Australia</p>
+							<h5>Name:<?php echo $member;?></h5>
+							<p><b>Mem Id :</b><?php echo $mem;?></p>
+							
 						</div>
 					</div>
 					<div class="col-xs-4 col-sm-4 col-md-4">
 						<div class="receipt-left">
-							<h1>Receipt</h1>
+							
 						</div>
 					</div>
 				</div>
@@ -134,51 +127,40 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td class="col-md-9">Payment for August 2016</td>
-                            <td class="col-md-3"><i class="fa fa-inr"></i> 15,000/-</td>
+                            <td class="col-md-9">Basic Salary 1000*<?php echo $attendance;?> days </td>
+                            <td class="col-md-3"><i class="fa fa-inr"></i> <?php echo $basic_salary;?></td>
                         </tr>
                         <tr>
-                            <td class="col-md-9">Payment for June 2016</td>
-                            <td class="col-md-3"><i class="fa fa-inr"></i> 6,00/-</td>
+                            <td class="col-md-9">Over Time 100*<?php echo $over_time;?></td>
+                            <td class="col-md-3"><i class="fa fa-inr"></i> <?php echo $over;?></td>
                         </tr>
-                        <tr>
-                            <td class="col-md-9">Payment for May 2016</td>
-                            <td class="col-md-3"><i class="fa fa-inr"></i> 35,00/-</td>
-                        </tr>
+                       
                         <tr>
                             <td class="text-right">
                             <p>
-                                <strong>Total Amount: </strong>
+                                <strong>Total Income Amount: </strong>
                             </p>
-                            <p>
-                                <strong>Late Fees: </strong>
-                            </p>
-							<p>
-                                <strong>Payable Amount: </strong>
-                            </p>
-							<p>
-                                <strong>Balance Due: </strong>
-                            </p>
+                           
 							</td>
                             <td>
                             <p>
-                                <strong><i class="fa fa-inr"></i> 65,500/-</strong>
+                                <strong><i class="fa fa-inr"></i> <?php echo $income;?></strong>
                             </p>
-                            <p>
-                                <strong><i class="fa fa-inr"></i> 500/-</strong>
-                            </p>
-							<p>
-                                <strong><i class="fa fa-inr"></i> 1300/-</strong>
-                            </p>
-							<p>
-                                <strong><i class="fa fa-inr"></i> 9500/-</strong>
-                            </p>
+                           
 							</td>
                         </tr>
                         <tr>
+                            <td class="col-md-9">Loan Amount </td>
+                            <td class="col-md-3"><i class="fa fa-inr"></i> <?php echo $loan_deduction;?></td>
+                        </tr>
+                         <tr>
+                            <td class="col-md-9">Festival Advance </td>
+                            <td class="col-md-3"><i class="fa fa-inr"></i> <?php echo $festival_advance;?></td>
+                        </tr>
+                        <tr>
                            
-                            <td class="text-right"><h2><strong>Total: </strong></h2></td>
-                            <td class="text-left text-danger"><h2><strong><i class="fa fa-inr"></i> 31.566/-</strong></h2></td>
+                            <td class="text-right"><h2><strong>Netpay: </strong></h2></td>
+                            <td class="text-left text-danger"><h2><strong><i class="fa fa-inr"></i> <?php echo $netpay;?></strong></h2></td>
                         </tr>
                     </tbody>
                 </table>
@@ -188,8 +170,7 @@
 				<div class="receipt-header receipt-header-mid receipt-footer">
 					<div class="col-xs-8 col-sm-8 col-md-8 text-left">
 						<div class="receipt-right">
-							<p><b>Date :</b> 15 Aug 2016</p>
-							<h5 style="color: rgb(140, 140, 140);">Thank you for your business!</h5>
+							
 						</div>
 					</div>
 					<div class="col-xs-4 col-sm-4 col-md-4">
